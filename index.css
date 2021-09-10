@@ -84,7 +84,7 @@ body {
   border: 2px solid var(--sec-color);
   min-width: 180px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 3;
 }
 .dropdown-content ul {
   padding: 0;
@@ -170,8 +170,9 @@ body {
 .export-container-wrapper {
   margin: 8px;
   padding: 40px 60px;
-  background: #3498db;
+  background: #5875df;
   max-width: 950px;
+  transition: 0.25s ease-in-out;
 }
 .export-container {
   display: flex;

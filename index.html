@@ -49,7 +49,7 @@
                     </ul>
                   </div>
                 </div>
-                <input class="color-picker" type="color" value="#5875DF">
+                <input class="color-picker js-color-picker" type="color" value="#5875DF">
               </div>
           </div>
           <div class="toolbar-2">
@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="editing-container-wrapper">
-          <div class="export-container-wrapper">
+          <div class="export-container-wrapper js-export-container-wrapper  ">
             <div class="export-container">
             <div class="editor-wrapper">
             <textarea id="editor" rows="4" cols="50">const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], 
@@ -80,7 +80,7 @@ const unfold = (f, seed) => {
       </div>
     </div>
     <script src="dropdown.js"></script>
-      <script src="index.js" type="module"></script>
+    <script src="index.js" type="module"></script>
     <script src="codemirror/lib/codemirror.js"></script>
     <script src="codemirror/mode/javascript/javascript.js"></script>
   </body>
