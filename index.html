@@ -29,7 +29,27 @@
                 </svg>
               </button>
               <div class="selection-container">
-                <input class="color-picker" type="color" value="#4067F2">
+                   <div class="js-theme-dropdown dropdown">
+                   <button class="js-theme-dropbtn dropbtn">Dropdown</button>
+                   <div id="themeDropdown" class="js-theme-dropdown-content dropdown-content">
+                     <ul>
+                      <li class="js-theme-item item">Link 1</li>
+                     <li class="js-theme-item item">Link 2</li>
+                     <li class="js-theme-item item"> Link 3</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="js-lang-dropdown dropdown">
+                   <button class="js-lang-dropbtn dropbtn">Dropdown</button>
+                   <div id="langDropdown" class="js-lang-dropdown-content dropdown-content">
+                     <ul>
+                      <li class="js-lang-item item">Link 1</li>
+                     <li class="js-lang-item item"> Link 2</li>
+                     <li class="js-lang-item item"> Link 3</li>
+                    </ul>
+                  </div>
+                </div>
+                <input class="color-picker" type="color" value="#5875DF">
               </div>
           </div>
           <div class="toolbar-2">
@@ -40,8 +60,8 @@
         </div>
       </div>
     </div>
+      <script src="index.js" type="module"></script>
     <script src="codemirror/lib/codemirror.js"></script>
     <script src="codemirror/mode/javascript/javascript.js"></script>
-    <script src="index.js" type="module"></script>
   </body>
 </html>
