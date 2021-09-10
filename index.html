@@ -58,8 +58,28 @@
             <button class="btn exp-btn">Export</button>
           </div>
         </div>
+        <div class="editing-container-wrapper">
+          <div class="export-container-wrapper">
+            <div class="export-container">
+            <div class="editor-wrapper">
+            <textarea id="editor" rows="4" cols="50">const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], 
+
+const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
+
+const unfold = (f, seed) => {
+  const go = (f, seed, acc) => {
+    const res = f(seed)
+    return res ? go(f, res[1], acc.concat([res[0]])) : acc
+  }
+  return go(f, seed, [])
+}</textarea>
+            </div>
+          </div>
+          </div>
+        </div>
       </div>
     </div>
+    <script src="dropdown.js"></script>
       <script src="index.js" type="module"></script>
     <script src="codemirror/lib/codemirror.js"></script>
     <script src="codemirror/mode/javascript/javascript.js"></script>
