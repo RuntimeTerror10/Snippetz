@@ -1,4 +1,5 @@
 import { changeTheme } from "./theme.js";
+import { changeLanguage } from "./language.js";
 
 const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
   lineNumbers: true,
@@ -21,6 +22,14 @@ themeItems.forEach((item) => {
     themeBtn.innerText = themeObj.themeName;
     editor.setOption("theme", themeObj.themeId);
     console.log(editor);
+  });
+});
+
+langItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    let langObj = changeLanguage(item);
+    langBtn.innerText = langObj.langName;
+    editor.setOption("mode", langObj.langId);
   });
 });
 
