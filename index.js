@@ -1,34 +1,34 @@
-import { HandleThemeDropBtnClickEvent } from "./dropdown.js";
-import { HandleLangDropBtnClickEvent } from "./dropdown.js";
+import { changeTheme } from "./theme.js";
 
 const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
   lineNumbers: true,
   mode: "javascript",
   theme: "dracula",
 });
-const langDropBtn = document.querySelector(".js-lang-dropbtn");
-const themeDropBtn = document.querySelector(".js-theme-dropbtn");
-const langDropContent = document.querySelector(".js-lang-dropdown-content");
-const themeDropContent = document.querySelector(".js-theme-dropdown-content");
+
+const themeBtn = document.querySelector(".js-theme-drop-btn");
+const langBtn = document.querySelector(".js-lang-drop-btn");
+const themeItems = document.querySelectorAll(".js-theme-item");
+const langItems = document.querySelectorAll(".js-lang-item");
 const colorPicker = document.querySelector(".js-color-picker");
-const SnippetBackground = document.querySelector(
+const snippetBackground = document.querySelector(
   ".js-export-container-wrapper"
 );
 
+themeItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    let themeObj = changeTheme(item);
+    themeBtn.innerText = themeObj.themeName;
+    editor.setOption("theme", themeObj.themeId);
+    console.log(editor);
+  });
+});
+
 colorPicker.addEventListener("input", (e) => {
-  changeSnippetBackgroundColorOnChange();
+  changeSnippetBackgroundColor();
 });
 
-themeDropBtn.addEventListener("click", function () {
-  document.getElementById("themeDropdown").classList.toggle("show");
-  HandleThemeDropBtnClickEvent(themeDropContent);
-});
-langDropBtn.addEventListener("click", function () {
-  document.getElementById("langDropdown").classList.toggle("show");
-  HandleLangDropBtnClickEvent(langDropContent);
-});
-
-function changeSnippetBackgroundColorOnChange() {
+function changeSnippetBackgroundColor() {
   const color = colorPicker.value;
-  SnippetBackground.style.background = color;
+  snippetBackground.style.background = color;
 }
