@@ -75,6 +75,16 @@ body {
   background: transparent;
   border: 2px solid var(--sec-color);
 }
+.lang-drop-btn:hover,
+.theme-drop-btn:hover {
+  background: transparent;
+  border: 2px solid #fff;
+}
+.lang-drop-btn:active,
+.theme-drop-btn:active {
+  background: green;
+  border: 2px solid #fff;
+}
 .arrow-svg {
   position: absolute;
   right: 4px;
