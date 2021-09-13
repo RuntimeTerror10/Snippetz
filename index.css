@@ -9,6 +9,7 @@ body {
 .head {
   text-align: center;
   font-size: 3rem;
+  font-weight: bolder;
   font-family: "Roboto", sans-serif;
 }
 .main-container {
@@ -58,72 +59,44 @@ body {
 .selection-container {
   display: flex;
 }
-.dropbtn {
+.lang-dropdown {
+  margin: 0 15px;
+}
+.lang-dropdown,
+.theme-dropdown {
   position: relative;
-  background-color: #3498db;
-  color: white;
-  width: 220px;
-  padding: 10px;
-  margin-top: 2px;
-  font-size: 16px;
+  top: 3px;
+}
+.theme-drop-btn,
+.lang-drop-btn {
+  width: 200px;
   text-align: left;
-  border: 2px solid var(--sec-color);
-  border-radius: 5px;
-  cursor: pointer;
+  font-size: 1.15rem;
   background: transparent;
-}
-.down-svg {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-}
-
-.dropdown {
-  position: relative;
-  margin: 0 8px;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  overflow-y: scroll;
-  height: 300px;
-  background-color: var(--prim-color);
   border: 2px solid var(--sec-color);
-  min-width: 210px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 3;
 }
-.dropdown-content ul {
-  padding: 0;
-  margin: 0;
+.arrow-svg {
+  position: absolute;
+  right: 4px;
 }
-/* Links inside the dropdown */
+.lang-menu,
+.theme-menu {
+  background: #2c2c2c;
+  border: 2px solid #fff;
+  max-height: 400px;
+  overflow-y: scroll;
+}
 .item {
   color: #fff;
-  padding: 15px 20px;
-  font-family: "Roboto", sans-serif;
-  list-style: none;
-  display: block;
-  text-align: center;
-  cursor: pointer;
   font-size: 1.1rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: var(--prim-color);
+  text-align: center;
   transition: 0.2s ease-in-out;
 }
-
-/* Change color of dropdown links on hover */
-.dropdown-content li:hover {
-  background-color: var(--sec-color);
-  color: var(--prim-color);
-}
-
-.active-lang,
-.active-theme {
-  background-color: rgba(79, 79, 79, 0.496);
-}
-.show {
-  display: block;
+.lang-item {
+  padding: 10px 50px;
 }
 .toolbar-2 {
   padding: 10px;
@@ -133,7 +106,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.btn {
+.button {
   background: transparent;
   padding: 8px 50px;
   margin: 5px 25px;
