@@ -1,5 +1,6 @@
 import { changeTheme } from "./theme.js";
 import { changeLanguage } from "./language.js";
+import { saveSnippet } from "./save.js";
 
 const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
   lineNumbers: false,
@@ -15,6 +16,8 @@ const themeItems = document.querySelectorAll(".js-theme-item");
 const langItems = document.querySelectorAll(".js-lang-item");
 const lineNumberCheckbox = document.querySelector(".js-line-number-checkbox");
 const fontSizeInput = document.querySelector(".js-font-size-input");
+const snippetNameInput = document.querySelector(".js-snippet-input");
+const saveBtn = document.querySelector(".js-save-btn");
 const colorPicker = document.querySelector(".js-color-picker");
 const snippetBackground = document.querySelector(
   ".js-export-container-wrapper"
@@ -58,6 +61,19 @@ fontSizeInput.addEventListener("keyup", () => {
 
 colorPicker.addEventListener("input", (e) => {
   changeSnippetBackgroundColor();
+});
+
+saveBtn.addEventListener("click", () => {
+  let code = editor.getValue();
+  let languageName = langBtn.innerText;
+  let languageid = editor.getOption("mode");
+  let snippetName = snippetNameInput.value;
+  if (snippetName.length === 0) {
+    alert("Give this snippet a name before saving!");
+  } else {
+    saveSnippet(code, snippetName, languageName, languageid);
+    snippetNameInput.value = "";
+  }
 });
 
 function changeSnippetBackgroundColor() {
