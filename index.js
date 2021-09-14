@@ -2,11 +2,11 @@ import { changeTheme } from "./theme.js";
 import { changeLanguage } from "./language.js";
 
 const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-  lineNumbers: true,
+  lineNumbers: false,
   mode: "javascript",
-  theme: "dracula",
+  theme: "material-darker",
 });
-
+console.log(editor);
 const themeBtn = document.querySelector(".js-theme-drop-btn");
 const langBtn = document.querySelector(".js-lang-drop-btn");
 const themeItems = document.querySelectorAll(".js-theme-item");
