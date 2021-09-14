@@ -1,6 +1,6 @@
 :root {
   --prim-color: #2c2c2c;
-  --sec-color: rgb(198, 198, 198);
+  --sec-color: #fff;
   --bg-color: rgba(183, 183, 183, 0.825);
 }
 body {
@@ -21,7 +21,7 @@ body {
     rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.338) 0px 24px 80px;
 }
 .CodeMirror {
-  font-size: 0.95rem;
+  font-size: 1rem;
   height: auto;
   width: 850px;
   max-width: 950px;
@@ -39,15 +39,13 @@ body {
   display: flex;
   justify-content: center;
 }
-.setting-svg {
-  padding: 8px;
-  border-radius: 50%;
-  border: 2px solid var(--sec-color);
-  cursor: pointer;
-}
-.setting-btn {
+.snippet-input {
   background: transparent;
-  border: none;
+  border: 2px solid var(--sec-color);
+  color: var(--sec-color);
+  padding: 5px 10px;
+  font-size: 1.15rem;
+  border-radius: 5px;
 }
 .toolbar-container {
   padding: 0px;
@@ -57,18 +55,41 @@ body {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgb(118, 118, 118);
-  padding: 5px 0;
+  padding: 10px;
+}
+.left-selection-container {
+  align-self: center;
+}
+.input-label {
+  color: var(--sec-color);
+  font-size: 1.1rem;
+  margin-left: 10px;
+}
+.line-number-checkbox {
+  transform: scale(2);
+}
+.font-size-input {
+  background: transparent;
+  border: 2px solid var(--sec-color);
+  border-radius: 5px;
+  color: var(--sec-color);
+  font-size: 1.1rem;
+  width: 80px;
+  text-align: center;
+  padding: 7px 5px;
+  margin-left: 20px;
 }
 .selection-container {
   display: flex;
 }
 .lang-dropdown {
+  margin-right: 10px;
+}
+.theme-dropdown {
   margin: 0 15px;
 }
 .lang-dropdown,
 .theme-dropdown {
-  position: relative;
-  top: 3px;
 }
 .theme-drop-btn,
 .lang-drop-btn {
@@ -81,12 +102,12 @@ body {
 .lang-drop-btn:hover,
 .theme-drop-btn:hover {
   background: transparent;
-  border: 2px solid #fff;
+  border: 2px solid var(--sec-color);
 }
 .lang-drop-btn:active,
 .theme-drop-btn:active {
   background: green;
-  border: 2px solid #fff;
+  border: 2px solid var(--sec-color);
 }
 .arrow-svg {
   position: absolute;
@@ -95,12 +116,12 @@ body {
 .lang-menu,
 .theme-menu {
   background: #2c2c2c;
-  border: 2px solid #fff;
+  border: 2px solid var(--sec-color);
   max-height: 400px;
   overflow-y: scroll;
 }
 .item {
-  color: #fff;
+  color: var(--sec-color);
   font-size: 1.1rem;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -117,14 +138,17 @@ body {
 .toolbar-2 {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 .button {
   background: transparent;
   padding: 8px 50px;
-  margin: 5px 25px;
+  margin: 5px 10px;
   cursor: pointer;
   transition: 0.25s ease-in-out;
+}
+.snippet-input-container {
+  align-self: center;
 }
 .save-btn {
   color: green;
@@ -158,7 +182,6 @@ body {
 }
 
 .color-picker {
-  width: 45px;
   height: 45px;
   border: none;
   background: transparent;
