@@ -67,6 +67,7 @@ body {
 }
 .line-number-checkbox {
   transform: scale(2);
+  margin-left: 7px;
 }
 .font-size-input {
   background: transparent;
@@ -88,9 +89,7 @@ body {
 .theme-dropdown {
   margin: 0 15px;
 }
-.lang-dropdown,
-.theme-dropdown {
-}
+
 .theme-drop-btn,
 .lang-drop-btn {
   width: 200px;
