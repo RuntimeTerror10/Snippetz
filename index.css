@@ -32,6 +32,9 @@ body {
   box-sizing: border-box;
   border-radius: 10px;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 .main-container-wrapper {
   display: flex;
   justify-content: center;
@@ -166,10 +169,10 @@ body {
   justify-content: center;
 }
 .export-container-wrapper {
-  margin: 8px;
-  padding: 40px 65px;
+  padding: 40px;
   background: #5875df;
-  max-width: 950px;
+  width: 100%;
+  border-radius: 3px;
   transition: 0.25s ease-in-out;
 }
 .export-container {
