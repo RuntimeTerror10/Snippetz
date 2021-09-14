@@ -5,12 +5,16 @@ const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
   lineNumbers: false,
   mode: "javascript",
   theme: "material-darker",
+  fontSize: "16px",
 });
 console.log(editor);
+const editor2 = document.querySelector(".CodeMirror");
 const themeBtn = document.querySelector(".js-theme-drop-btn");
 const langBtn = document.querySelector(".js-lang-drop-btn");
 const themeItems = document.querySelectorAll(".js-theme-item");
 const langItems = document.querySelectorAll(".js-lang-item");
+const lineNumberCheckbox = document.querySelector(".js-line-number-checkbox");
+const fontSizeInput = document.querySelector(".js-font-size-input");
 const colorPicker = document.querySelector(".js-color-picker");
 const snippetBackground = document.querySelector(
   ".js-export-container-wrapper"
@@ -37,6 +41,19 @@ langItems.forEach((item) => {
                   </svg>`;
     editor.setOption("mode", langObj.langId);
   });
+});
+
+lineNumberCheckbox.addEventListener("change", () => {
+  if (lineNumberCheckbox.checked) {
+    editor.setOption("lineNumbers", true);
+  } else {
+    editor.setOption("lineNumbers", false);
+  }
+});
+
+fontSizeInput.addEventListener("keyup", () => {
+  let value = `${fontSizeInput.value}px`;
+  editor2.style.fontSize = value;
 });
 
 colorPicker.addEventListener("input", (e) => {
