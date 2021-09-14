@@ -16,9 +16,8 @@
   <link rel="stylesheet" href="/codemirror/theme/hopscotch.css" />
   <link rel="stylesheet" href="/codemirror/theme/blackboard.css" />
   <link rel="stylesheet" href="/codemirror/theme/duotone-light.css" />
-    <link rel="stylesheet" href="/codemirror/theme/paraiso-light.css" />
-
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="/codemirror/theme/paraiso-light.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="index.css" />
   <title>Snippetz.io</title>
 </head>
@@ -66,16 +65,16 @@
                 </svg>
               </button>
                 <div class="dropdown-menu lang-menu" aria-labelledby="dropdownMenuButton">
-                  <button class="dropdown-item item lang-item js-lang-item" id="javascript" href="#">JavaScript</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="css" href="#">CSS</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="htmlembedded" href="#">HTML</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="python" href="#">Python</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="jsx" href="#">JSX</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="typescript" href="#">TypeScript</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="sass" href="#">Sass</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="shell" href="#">Shell</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="sql" href="#">SQL</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="python" href="#">C++</button>
+                  <button class="dropdown-item item lang-item js-lang-item" id="javascript" >JavaScript</button>
+                  <button class="dropdown-item item lang-item js-lang-item" id="css" >CSS</button>
+                  <button class="dropdown-item item lang-item js-lang-item" id="htmlembedded" >HTML</button>
+                  <button class="dropdown-item item lang-item js-lang-item" id="python" >Python</button>
+                  <button class="dropdown-item item lang-item js-lang-item" id="jsx" >JSX</button>
+                  <button class="dropdown-item item lang-item js-lang-item" id="javascript" >TypeScript</button>
+                  <button class="dropdown-item item lang-item js-lang-item" id="sass">Sass</button>
+                  <button class="dropdown-item item lang-item js-lang-item" id="shell">Shell</button>
+                  <button class="dropdown-item item lang-item js-lang-item" id="sql">SQL</button>
+                  <button class="dropdown-item item lang-item js-lang-item" id="python">C++</button>
                 </div>
               </div>
               <input class="color-picker js-color-picker" type="color" value="#5875DF">
@@ -86,9 +85,9 @@
               <input class="snippet-input" placeholder="Add snippet name" type="text">
             </div>
             <div class="button-container">
-            <button class="button save-btn">Save</button>
-            <button class="button load-btn">Load</button>
-            <button class="button exp-btn">Export</button>
+            <button class="button save-btn js-save-btn">Save</button>
+            <button class="button load-btn js-load-btn">Load</button>
+            <button class="button exp-btn js-exp-btn">Export</button>
             </div>
           </div>
         </div>
@@ -113,10 +112,24 @@ const unfold = (f, seed) => {
         </div>
       </div>
     </div>
+    <div class="modal js-modal">
+      <div class="modal-content">
+         <span class="close">&times;</span>
+        <div class="modal-header">
+          <h2>Load Snippet</h2>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the Modal Body</p>
+          <p>Some other text...</p>
+        </div>
+      </div>
+  </div>
+
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script src="index.js" type="module"></script>
+    <script src="modal.js"></script>
     <script src="codemirror/lib/codemirror.js"></script>
     <script src="codemirror/mode/javascript/javascript.js"></script>
     <script src="codemirror/mode/css/css.js"></script>
@@ -126,7 +139,6 @@ const unfold = (f, seed) => {
     <script src="codemirror/mode/shell/shell.js"></script>
     <script src="codemirror/mode/sass/sass.js"></script>
     <script src="codemirror/mode/sql/sql.js"></script>
-    <script src="codemirror/mode/javascript/javascript.js"></script>
 </body>
 
 </html>
