@@ -19,7 +19,10 @@ const snippetBackground = document.querySelector(
 themeItems.forEach((item) => {
   item.addEventListener("click", () => {
     let themeObj = changeTheme(item);
-    themeBtn.innerText = themeObj.themeName;
+    themeBtn.innerHTML = `${themeObj.themeName}
+                         <svg class="arrow-svg" style="width:24px;height:24px" viewBox="0 0 24 24">
+                          <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M7,10L12,15L17,10H7Z" />
+                         </svg>`;
     editor.setOption("theme", themeObj.themeId);
     console.log(editor);
   });
@@ -28,7 +31,10 @@ themeItems.forEach((item) => {
 langItems.forEach((item) => {
   item.addEventListener("click", () => {
     let langObj = changeLanguage(item);
-    langBtn.innerText = langObj.langName;
+    langBtn.innerHTML = `${langObj.langName} 
+                  <svg class="arrow-svg" style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M7,10L12,15L17,10H7Z" />
+                  </svg>`;
     editor.setOption("mode", langObj.langId);
   });
 });
