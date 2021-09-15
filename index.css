@@ -150,6 +150,7 @@ body {
   margin: 5px 10px;
   cursor: pointer;
   transition: 0.25s ease-in-out;
+  font-size: 1.1rem;
 }
 .snippet-input-container {
   align-self: center;
@@ -159,21 +160,18 @@ body {
   background: rgb(161, 221, 161);
   border: 0;
   border-radius: 8px;
-  font-size: 1rem;
 }
 .load-btn {
   color: #000;
   border-radius: 8px;
   border: 0;
   background: rgb(209, 209, 129);
-  font-size: 1.1rem;
 }
 .exp-btn {
   color: #000;
   background: rgb(187, 115, 115);
   border: 0;
   border-radius: 8px;
-  font-size: 1rem;
 }
 .save-btn:hover {
   background: rgb(141, 196, 141);
