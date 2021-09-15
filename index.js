@@ -81,17 +81,17 @@ saveBtn.addEventListener("click", () => {
   }
 });
 loadBtn.addEventListener("click", function () {
-  modal.style.display = "block";
+  displayModal();
   displayAllLoadSnippet();
 });
 
 closeBtn.addEventListener("click", function () {
-  modal.style.display = "none";
+  hideModal();
 });
 
 window.addEventListener("click", function (event) {
   if (event.target === modal) {
-    modal.style.display = "none";
+    hideModal();
   }
 });
 
@@ -103,7 +103,6 @@ function displayAllLoadSnippet() {
   clearModalBody();
   for (let i = 0; i < Object.keys(localStorage).length; i++) {
     let key = Object.keys(localStorage)[i];
-    let obj = JSON.parse(localStorage.getItem(key));
     const snippetTab = document.createElement("div");
     snippetTab.classList.add("snippet-tab");
     snippetTab.innerHTML = `<h1 class="tab-head">${key}</h1>
@@ -113,9 +112,35 @@ function displayAllLoadSnippet() {
                             </div>`;
     modalBody.appendChild(snippetTab);
   }
+  handleLoadSnippetEvent();
   handleSnippetDeleteEvent();
 }
 
 function clearModalBody() {
   modalBody.innerHTML = "";
+}
+
+function displayModal() {
+  modal.style.display = "block";
+}
+
+function hideModal() {
+  modal.style.display = "none";
+}
+
+function handleLoadSnippetEvent() {
+  document.querySelectorAll(".js-load-snippet-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      let emptyStr = "";
+      editor.setValue(emptyStr);
+      let SnippetObj = JSON.parse(localStorage.getItem(btn.parentElement.id));
+      editor.setValue(SnippetObj.snippet);
+      editor.setOption("mode", SnippetObj.languageid);
+      langBtn.innerHTML = `${SnippetObj.language}
+                          <svg class="arrow-svg" style="width:24px;height:24px" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M7,10L12,15L17,10H7Z" />
+                          </svg>`;
+      hideModal();
+    });
+  });
 }
