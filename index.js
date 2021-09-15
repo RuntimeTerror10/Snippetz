@@ -1,6 +1,7 @@
 import { changeTheme } from "./theme.js";
 import { changeLanguage } from "./language.js";
 import { saveSnippet } from "./save.js";
+import { handleSnippetDeleteEvent } from "./modal.js";
 
 const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
   lineNumbers: false,
@@ -18,6 +19,10 @@ const lineNumberCheckbox = document.querySelector(".js-line-number-checkbox");
 const fontSizeInput = document.querySelector(".js-font-size-input");
 const snippetNameInput = document.querySelector(".js-snippet-input");
 const saveBtn = document.querySelector(".js-save-btn");
+const loadBtn = document.querySelector(".js-load-btn");
+const modal = document.querySelector(".js-modal");
+const modalBody = document.querySelector(".js-modal-body");
+const closeBtn = document.querySelector(".js-close");
 const colorPicker = document.querySelector(".js-color-picker");
 const snippetBackground = document.querySelector(
   ".js-export-container-wrapper"
@@ -75,8 +80,42 @@ saveBtn.addEventListener("click", () => {
     snippetNameInput.value = "";
   }
 });
+loadBtn.addEventListener("click", function () {
+  modal.style.display = "block";
+  displayAllLoadSnippet();
+});
+
+closeBtn.addEventListener("click", function () {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
 
 function changeSnippetBackgroundColor() {
   const color = colorPicker.value;
   snippetBackground.style.background = color;
+}
+function displayAllLoadSnippet() {
+  clearModalBody();
+  for (let i = 0; i < Object.keys(localStorage).length; i++) {
+    let key = Object.keys(localStorage)[i];
+    let obj = JSON.parse(localStorage.getItem(key));
+    const snippetTab = document.createElement("div");
+    snippetTab.classList.add("snippet-tab");
+    snippetTab.innerHTML = `<h1 class="tab-head">${key}</h1>
+                            <div class="tab-btns" id="${key}">
+                              <button class="load-snippet-btn js-load-snippet-btn">Load</button>
+                              <button class="delete-snippet-btn js-delete-snippet-btn">Delete</button>
+                            </div>`;
+    modalBody.appendChild(snippetTab);
+  }
+  handleSnippetDeleteEvent();
+}
+
+function clearModalBody() {
+  modalBody.innerHTML = "";
 }
