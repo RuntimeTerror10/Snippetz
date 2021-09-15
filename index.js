@@ -2,6 +2,8 @@ import { changeTheme } from "./theme.js";
 import { changeLanguage } from "./language.js";
 import { saveSnippet } from "./save.js";
 import { handleSnippetDeleteEvent } from "./modal.js";
+import html2canvas from "./html2canvas.esm.js";
+import saveAs from "./export.js";
 
 const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
   lineNumbers: false,
@@ -23,6 +25,7 @@ const loadBtn = document.querySelector(".js-load-btn");
 const modal = document.querySelector(".js-modal");
 const modalBody = document.querySelector(".js-modal-body");
 const closeBtn = document.querySelector(".js-close");
+const exportBtn = document.querySelector(".js-exp-btn");
 const colorPicker = document.querySelector(".js-color-picker");
 const snippetBackground = document.querySelector(
   ".js-export-container-wrapper"
@@ -83,6 +86,14 @@ saveBtn.addEventListener("click", () => {
 loadBtn.addEventListener("click", function () {
   displayModal();
   displayAllLoadSnippet();
+});
+
+exportBtn.addEventListener("click", () => {
+  html2canvas(document.querySelector(".js-export-container-wrapper")).then(
+    function (canvas) {
+      saveAs(canvas.toDataURL(), "file-name.png");
+    }
+  );
 });
 
 closeBtn.addEventListener("click", function () {
