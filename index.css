@@ -25,6 +25,9 @@ body {
   box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
     rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.338) 0px 24px 80px;
 }
+textarea {
+  display: none;
+}
 .CodeMirror {
   font-size: 1rem;
   height: auto;
