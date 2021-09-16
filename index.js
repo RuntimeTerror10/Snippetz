@@ -12,7 +12,7 @@ const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
   fontSize: "16px",
 });
 console.log(editor);
-const editor2 = document.querySelector(".CodeMirror");
+const codeMirror = document.querySelector(".CodeMirror");
 const themeBtn = document.querySelector(".js-theme-drop-btn");
 const langBtn = document.querySelector(".js-lang-drop-btn");
 const themeItems = document.querySelectorAll(".js-theme-item");
@@ -64,7 +64,7 @@ lineNumberCheckbox.addEventListener("change", () => {
 
 fontSizeInput.addEventListener("keyup", () => {
   let value = `${fontSizeInput.value}px`;
-  editor2.style.fontSize = value;
+  changeCodeMirrorFontSize(value);
 });
 
 colorPicker.addEventListener("input", (e) => {
@@ -80,7 +80,7 @@ saveBtn.addEventListener("click", () => {
     alert("Give this snippet a name before saving!");
   } else {
     saveSnippet(code, snippetName, languageName, languageid);
-    snippetNameInput.value = "";
+    clearSnippetNameInput();
   }
 });
 loadBtn.addEventListener("click", function () {
@@ -134,9 +134,14 @@ function clearModalBody() {
 function displayModal() {
   modal.style.display = "block";
 }
-
+function clearSnippetNameInput() {
+  snippetNameInput.value = "";
+}
 function hideModal() {
   modal.style.display = "none";
+}
+function changeCodeMirrorFontSize(value) {
+  codeMirror.style.fontSize = value;
 }
 
 function handleLoadSnippetEvent() {
