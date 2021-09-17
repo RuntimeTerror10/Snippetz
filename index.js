@@ -10,8 +10,8 @@ const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
   mode: "javascript",
   theme: "material-darker",
   fontSize: "16px",
+  lineWrapping: true,
 });
-console.log(editor);
 const codeMirror = document.querySelector(".CodeMirror");
 const themeBtn = document.querySelector(".js-theme-drop-btn");
 const langBtn = document.querySelector(".js-lang-drop-btn");
@@ -111,17 +111,21 @@ function changeSnippetBackgroundColor() {
   snippetBackground.style.background = color;
 }
 function displayAllLoadSnippet() {
-  clearModalBody();
-  for (let i = 0; i < Object.keys(localStorage).length; i++) {
-    let key = Object.keys(localStorage)[i];
-    const snippetTab = document.createElement("div");
-    snippetTab.classList.add("snippet-tab");
-    snippetTab.innerHTML = `<h1 class="tab-head">${key}</h1>
+  if (Object.keys(localStorage).length > 0) {
+    clearModalBody();
+    for (let i = 0; i < Object.keys(localStorage).length; i++) {
+      let key = Object.keys(localStorage)[i];
+      const snippetTab = document.createElement("div");
+      snippetTab.classList.add("snippet-tab");
+      snippetTab.innerHTML = `<h1 class="tab-head">${key}</h1>
                             <div class="tab-btns" id="${key}">
                               <button class="load-snippet-btn js-load-snippet-btn">Load</button>
                               <button class="delete-snippet-btn js-delete-snippet-btn">Delete</button>
                             </div>`;
-    modalBody.appendChild(snippetTab);
+      modalBody.appendChild(snippetTab);
+    }
+  } else {
+    modalBody.innerHTML = `<h2 class="no-snip-msg">No snippet saved yet</h2>`;
   }
   handleLoadSnippetEvent();
   handleSnippetDeleteEvent();
