@@ -6,4 +6,9 @@
 
 ![Snippetz Example](/img/snippetz-example.png)
 
+## Resources used :
 
+<ul>
+  <li>CodeMirror</li>
+  <li>Html2Canvas</li>
+</ul>
