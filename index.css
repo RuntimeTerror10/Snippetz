@@ -5,6 +5,7 @@
 }
 body {
   background: var(--bg-color);
+  overflow-x: scroll;
 }
 .head {
   text-align: center;
@@ -19,12 +20,11 @@ body {
 }
 .main-container {
   width: 1000px;
-  margin-top: 50px;
+  margin-top: 30px;
   border-radius: 8px;
   border: 4px solid var(--prim-color);
   box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
     rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.338) 0px 24px 80px;
-  margin-bottom: 60px;
 }
 
 .CodeMirror {
@@ -328,4 +328,12 @@ body {
 }
 .load-snippet-btn:hover {
   background: rgb(141, 196, 141);
+}
+.about-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.about-container .dash {
+  margin: 0 30px;
 }
