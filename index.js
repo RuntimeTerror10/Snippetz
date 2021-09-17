@@ -1,7 +1,7 @@
-import { changeTheme } from "./theme.js";
-import { changeLanguage } from "./language.js";
-import { saveSnippet } from "./save.js";
-import { handleSnippetDeleteEvent } from "./modal.js";
+import changeTheme from "./theme.js";
+import changeLanguage from "./language.js";
+import saveSnippet from "./save.js";
+import handleSnippetDeleteEvent from "./modal.js";
 import html2canvas from "./html2canvas.esm.js";
 import saveAs from "./export.js";
 

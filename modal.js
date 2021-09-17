@@ -1,4 +1,4 @@
-export function handleSnippetDeleteEvent() {
+function handleSnippetDeleteEvent() {
   document.querySelectorAll(".js-delete-snippet-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const snippetName = btn.parentNode.id;
@@ -8,3 +8,5 @@ export function handleSnippetDeleteEvent() {
     });
   });
 }
+
+export default handleSnippetDeleteEvent;

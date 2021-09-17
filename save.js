@@ -1,4 +1,4 @@
-export function saveSnippet(code, name, langName, langid) {
+function saveSnippet(code, name, langName, langid) {
   let key = name;
   let obj = {
     snippet: code,
@@ -7,3 +7,5 @@ export function saveSnippet(code, name, langName, langid) {
   };
   window.localStorage.setItem(key, JSON.stringify(obj));
 }
+
+export default saveSnippet;
