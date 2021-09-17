@@ -1,105 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/codemirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="/codemirror/theme/dracula.css" />
+    <link rel="stylesheet" href="/codemirror/theme/cobalt.css" />
+    <link rel="stylesheet" href="/codemirror/theme/monokai.css" />
+    <link rel="stylesheet" href="/codemirror/theme/material.css" />
+    <link rel="stylesheet" href="/codemirror/theme/material-darker.css" />
+    <link rel="stylesheet" href="/codemirror/theme/material-palenight.css" />
+    <link rel="stylesheet" href="/codemirror/theme/nord.css" />
+    <link rel="stylesheet" href="/codemirror/theme/hopscotch.css" />
+    <link rel="stylesheet" href="/codemirror/theme/blackboard.css" />
+    <link rel="stylesheet" href="/codemirror/theme/duotone-light.css" />
+    <link rel="stylesheet" href="/codemirror/theme/paraiso-light.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>Snippetz.io</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/codemirror/lib/codemirror.css" />
-  <link rel="stylesheet" href="/codemirror/theme/dracula.css" />
-  <link rel="stylesheet" href="/codemirror/theme/cobalt.css" />
-  <link rel="stylesheet" href="/codemirror/theme/monokai.css" />
-  <link rel="stylesheet" href="/codemirror/theme/material.css" />
-  <link rel="stylesheet" href="/codemirror/theme/material-darker.css" />
-  <link rel="stylesheet" href="/codemirror/theme/material-palenight.css" />
-  <link rel="stylesheet" href="/codemirror/theme/nord.css" />
-  <link rel="stylesheet" href="/codemirror/theme/hopscotch.css" />
-  <link rel="stylesheet" href="/codemirror/theme/blackboard.css" />
-  <link rel="stylesheet" href="/codemirror/theme/duotone-light.css" />
-  <link rel="stylesheet" href="/codemirror/theme/paraiso-light.css" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="index.css" />
-  <title>Snippetz.io</title>
-</head>
-
-<body>
-  <div class="container">
-    <h1 class="head">Snippetz.io</h1>
-    <h2 class="Sub-head">Save, edit, download and share your cool code snippets!</h2>
-    <div class="main-container-wrapper">
-      <div class="main-container">
-        <div class="toolbar-container">
-          <div class="toolbar-1">
-            <div class="left-selection-container">
-              <input type="checkbox" class="line-number-checkbox js-line-number-checkbox" id="line-number">
-              <label class="input-label" for="line-number">Line Number</label>
+  <body>
+    <div class="container">
+      <h1 class="head">Snippetz.io</h1>
+      <h2 class="Sub-head">
+        Save, edit, download and share your cool code snippets!
+      </h2>
+      <div class="main-container-wrapper">
+        <div class="main-container">
+          <div class="toolbar-container">
+            <div class="toolbar-1">
+              <div class="left-selection-container">
+                <input
+                  type="checkbox"
+                  class="line-number-checkbox js-line-number-checkbox"
+                  id="line-number"
+                />
+                <label class="input-label" for="line-number">Line Number</label>
+              </div>
+              <div class="selection-container">
+                <div class="font-size-input-div">
+                  <label for="font" class="font-size-input-label"
+                    >Font size :</label
+                  >
+                  <input
+                    value="17"
+                    id="font"
+                    class="font-size-input js-font-size-input"
+                    type="text"
+                  />
+                </div>
+                <div class="dropdown theme-dropdown">
+                  <button
+                    class="btn btn-secondary theme-drop-btn js-theme-drop-btn"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Material Darker
+                    <svg
+                      class="arrow-svg"
+                      style="width: 24px; height: 24px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M7,10L12,15L17,10H7Z"
+                      />
+                    </svg>
+                  </button>
+                  <div
+                    class="dropdown-menu theme-menu"
+                    aria-labelledby="dropdownMenuButton"
+                  >
+                    <button
+                      class="dropdown-item item theme-item js-theme-item"
+                      id="dracula"
+                      href="#"
+                    >
+                      Dracula
+                    </button>
+                    <button
+                      class="dropdown-item item theme-item js-theme-item"
+                      id="blackboard"
+                      href="#"
+                    >
+                      Blackboard
+                    </button>
+                    <button
+                      class="dropdown-item item theme-item js-theme-item"
+                      id="cobalt"
+                      href="#"
+                    >
+                      Cobalt
+                    </button>
+                    <button
+                      class="dropdown-item item theme-item js-theme-item"
+                      id="duotone-light"
+                      href="#"
+                    >
+                      Duotone Light
+                    </button>
+                    <button
+                      class="dropdown-item item theme-item js-theme-item"
+                      id="hopscotch"
+                      href="#"
+                    >
+                      Hopsotch
+                    </button>
+                    <button
+                      class="dropdown-item item theme-item js-theme-item"
+                      id="material"
+                      href="#"
+                    >
+                      Material
+                    </button>
+                    <button
+                      class="dropdown-item item theme-item js-theme-item"
+                      id="material-darker"
+                      href="#"
+                    >
+                      Material Darker
+                    </button>
+                    <button
+                      class="dropdown-item item theme-item js-theme-item"
+                      id="material-palenight"
+                      href="#"
+                    >
+                      Material Palenight
+                    </button>
+                    <button
+                      class="dropdown-item item theme-item js-theme-item"
+                      id="monokai"
+                      href="#"
+                    >
+                      Monokai
+                    </button>
+                    <button
+                      class="dropdown-item item theme-item js-theme-item"
+                      id="nord"
+                      ref="#"
+                    >
+                      Nord
+                    </button>
+                    <button
+                      class="dropdown-item item theme-item js-theme-item"
+                      id="paraiso-light"
+                      href="#"
+                    >
+                      Paraiso Light
+                    </button>
+                  </div>
+                </div>
+                <div class="dropdown lang-dropdown">
+                  <button
+                    class="btn btn-secondary lang-drop-btn js-lang-drop-btn"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    JavaScript
+                    <svg
+                      class="arrow-svg"
+                      style="width: 24px; height: 24px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M7,10L12,15L17,10H7Z"
+                      />
+                    </svg>
+                  </button>
+                  <div
+                    class="dropdown-menu lang-menu"
+                    aria-labelledby="dropdownMenuButton"
+                  >
+                    <button
+                      class="dropdown-item item lang-item js-lang-item"
+                      id="javascript"
+                    >
+                      JavaScript
+                    </button>
+                    <button
+                      class="dropdown-item item lang-item js-lang-item"
+                      id="css"
+                    >
+                      CSS
+                    </button>
+                    <button
+                      class="dropdown-item item lang-item js-lang-item"
+                      id="htmlembedded"
+                    >
+                      HTML
+                    </button>
+                    <button
+                      class="dropdown-item item lang-item js-lang-item"
+                      id="python"
+                    >
+                      Python
+                    </button>
+                    <button
+                      class="dropdown-item item lang-item js-lang-item"
+                      id="jsx"
+                    >
+                      JSX
+                    </button>
+                    <button
+                      class="dropdown-item item lang-item js-lang-item"
+                      id="javascript"
+                    >
+                      TypeScript
+                    </button>
+                    <button
+                      class="dropdown-item item lang-item js-lang-item"
+                      id="sass"
+                    >
+                      Sass
+                    </button>
+                    <button
+                      class="dropdown-item item lang-item js-lang-item"
+                      id="shell"
+                    >
+                      Shell
+                    </button>
+                    <button
+                      class="dropdown-item item lang-item js-lang-item"
+                      id="sql"
+                    >
+                      SQL
+                    </button>
+                    <button
+                      class="dropdown-item item lang-item js-lang-item"
+                      id="python"
+                    >
+                      C++
+                    </button>
+                  </div>
+                </div>
+                <input
+                  class="color-picker js-color-picker"
+                  type="color"
+                  value="#5875DF"
+                />
+              </div>
             </div>
-            <div class="selection-container">
-              <div class="font-size-input-div">
-                <label for="font" class="font-size-input-label">Font size :</label>            
-               <input value="17" id="font" class="font-size-input js-font-size-input" type="text">
+            <div class="toolbar-2">
+              <div class="snippet-input-container">
+                <input
+                  class="snippet-input js-snippet-input"
+                  placeholder="Add snippet name"
+                  type="text"
+                />
               </div>
-              <div class="dropdown theme-dropdown">
-                <button class="btn btn-secondary theme-drop-btn js-theme-drop-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Material Darker
-                <svg class="arrow-svg" style="width:24px;height:24px" viewBox="0 0 24 24">
-                  <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M7,10L12,15L17,10H7Z" />
-                </svg>
-            </button>
-                <div class="dropdown-menu theme-menu" aria-labelledby="dropdownMenuButton">
-                  <button class="dropdown-item item theme-item js-theme-item" id="dracula" href="#">Dracula</button>
-                  <button class="dropdown-item item theme-item js-theme-item"  id="blackboard" href="#">Blackboard</button>
-                  <button class="dropdown-item item theme-item js-theme-item"  id="cobalt" href="#">Cobalt</button>
-                  <button class="dropdown-item item theme-item js-theme-item"  id="duotone-light" href="#">Duotone Light</button>
-                  <button class="dropdown-item item theme-item js-theme-item"  id="hopscotch" href="#">Hopsotch</button>
-                  <button class="dropdown-item item theme-item js-theme-item"  id="material" href="#">Material</button>
-                  <button class="dropdown-item item theme-item js-theme-item"  id="material-darker" href="#">Material Darker</button>
-                  <button class="dropdown-item item theme-item js-theme-item"  id="material-palenight" href="#">Material Palenight</button>  
-                  <button class="dropdown-item item theme-item js-theme-item" id="monokai" href="#">Monokai</button>
-                  <button class="dropdown-item item theme-item js-theme-item" id="nord" ref="#">Nord</button>
-                  <button class="dropdown-item item theme-item js-theme-item" id="paraiso-light" href="#">Paraiso Light</button>
-
-                </div>
+              <div class="button-container">
+                <button class="button save-btn js-save-btn">Save</button>
+                <button class="button load-btn js-load-btn">Load</button>
+                <button class="button exp-btn js-exp-btn">Export</button>
               </div>
-             <div class="dropdown lang-dropdown">
-                <button class="btn btn-secondary lang-drop-btn js-lang-drop-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                JavaScript
-                <svg class="arrow-svg" style="width:24px;height:24px" viewBox="0 0 24 24">
-                  <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M7,10L12,15L17,10H7Z" />
-                </svg>
-              </button>
-                <div class="dropdown-menu lang-menu" aria-labelledby="dropdownMenuButton">
-                  <button class="dropdown-item item lang-item js-lang-item" id="javascript" >JavaScript</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="css" >CSS</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="htmlembedded" >HTML</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="python" >Python</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="jsx" >JSX</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="javascript" >TypeScript</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="sass">Sass</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="shell">Shell</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="sql">SQL</button>
-                  <button class="dropdown-item item lang-item js-lang-item" id="python">C++</button>
-                </div>
-              </div>
-              <input class="color-picker js-color-picker" type="color" value="#5875DF">
             </div>
           </div>
-          <div class="toolbar-2">
-            <div class="snippet-input-container"> 
-              <input class="snippet-input js-snippet-input" placeholder="Add snippet name" type="text">
-            </div>
-            <div class="button-container">
-            <button class="button save-btn js-save-btn">Save</button>
-            <button class="button load-btn js-load-btn">Load</button>
-            <button class="button exp-btn js-exp-btn">Export</button>
-            </div>
-          </div>
-        </div>
-        <div class="editing-container-wrapper">
-          <div class="export-container-wrapper js-export-container-wrapper  ">
-            <div class="export-container">
-              <div class="editor-wrapper">
-                <textarea id="editor" rows="4" cols="50">const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], 
+          <div class="editing-container-wrapper">
+            <div class="export-container-wrapper js-export-container-wrapper">
+              <div class="export-container">
+                <div class="editor-wrapper">
+                  <textarea id="editor" rows="4" cols="50">
+const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], 
 
 const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
 
@@ -109,31 +283,46 @@ const unfold = (f, seed) => {
     return res ? go(f, res[1], acc.concat([res[0]])) : acc
   }
   return go(f, seed, [])
-}</textarea>
+}</textarea
+                  >
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="modal js-modal">
-      <div class="modal-content">
-         <span class="close js-close">&times;</span>
-        <div class="modal-header">
-          <h2>Load Snippet</h2>
+      <div class="modal js-modal">
+        <div class="modal-content">
+          <span class="close js-close">&times;</span>
+          <div class="modal-header">
+            <h2>Load Snippet</h2>
+          </div>
+          <div class="modal-body js-modal-body"></div>
         </div>
-        <div class="modal-body js-modal-body"></div>
       </div>
-  </div>
-    <div class="about-container">
-      <h3>Made by <a href="https://twitter.com/parth_codes">Parth Bhardwaj</a></h3>
-      <h3 class="dash">|</h3>
-      <h3>View <a href="https://github.com/RuntimeTerror10/Snippetz.io">source code</a></h3>
     </div>
-
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <div class="about-container">
+      <h3>
+        Made by <a href="https://twitter.com/parth_codes">Parth Bhardwaj</a>
+      </h3>
+      <h3 class="dash">|</h3>
+      <h3>
+        View
+        <a href="https://github.com/RuntimeTerror10/Snippetz.io">source code</a>
+      </h3>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="index.js" type="module"></script>
     <script src="codemirror/lib/codemirror.js"></script>
     <script src="codemirror/mode/javascript/javascript.js"></script>
@@ -144,6 +333,5 @@ const unfold = (f, seed) => {
     <script src="codemirror/mode/shell/shell.js"></script>
     <script src="codemirror/mode/sass/sass.js"></script>
     <script src="codemirror/mode/sql/sql.js"></script>
-</body>
-
+  </body>
 </html>
