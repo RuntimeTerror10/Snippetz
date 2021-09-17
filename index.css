@@ -208,7 +208,7 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   padding-top: 100px;
   left: 0;
   top: 0;
@@ -233,7 +233,6 @@ body {
   animation-duration: 0.4s;
 }
 
-/* Add Animation */
 @-webkit-keyframes animatetop {
   from {
     top: -300px;
@@ -286,6 +285,7 @@ body {
 .snippet-tab {
   display: flex;
   justify-content: space-between;
+  margin: 20px 10px;
 }
 .tab-btns {
   align-self: center;
@@ -300,6 +300,7 @@ body {
 }
 .delete-snippet-btn {
   background: rgb(211, 133, 133);
+  margin-left: 10px;
 }
 .load-snippet-btn {
   background: rgb(161, 221, 161);
