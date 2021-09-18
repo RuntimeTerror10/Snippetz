@@ -11,6 +11,8 @@ const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
   theme: "material-darker",
   fontSize: "16px",
   lineWrapping: true,
+  autoCloseTags: true,
+  matchBrackets: true,
 });
 const codeMirror = document.querySelector(".CodeMirror");
 const themeBtn = document.querySelector(".js-theme-drop-btn");
