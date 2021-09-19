@@ -27,7 +27,7 @@ const loadBtn = document.querySelector(".js-load-btn");
 const modal = document.querySelector(".js-modal");
 const modalBody = document.querySelector(".js-modal-body");
 const closeBtn = document.querySelector(".js-close");
-const exportBtn = document.querySelector(".js-exp-btn");
+const exportBtn = document.querySelector(".js-export-btn");
 const colorPicker = document.querySelector(".js-color-picker");
 const snippetBackground = document.querySelector(
   ".js-export-container-wrapper"
@@ -93,7 +93,7 @@ loadBtn.addEventListener("click", function () {
 exportBtn.addEventListener("click", () => {
   html2canvas(document.querySelector(".js-export-container-wrapper")).then(
     function (canvas) {
-      saveAs(canvas.toDataURL(), "file-name.png");
+      saveAs(canvas.toDataURL(), "Snippetz.png");
     }
   );
 });

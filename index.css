@@ -1,7 +1,8 @@
 :root {
   --prim-color: #2c2c2c;
-  --sec-color: #fff;
-  --bg-color: rgba(183, 183, 183, 0.825);
+  --sec-color: #656565;
+  --bg-color: rgb(223 216 237);
+  --text-color: #fff;
 }
 body {
   background: var(--bg-color);
@@ -36,6 +37,7 @@ body {
   border: 4px solid var(--prim-color);
   box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
     rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.338) 0px 24px 80px;
+  overflow: hidden;
 }
 
 .CodeMirror {
@@ -61,7 +63,7 @@ body {
 .snippet-input {
   background: transparent;
   border: 2px solid var(--sec-color);
-  color: var(--sec-color);
+  color: var(--text-color);
   padding: 5px 10px;
   font-size: 1.15rem;
   border-radius: 5px;
@@ -80,7 +82,7 @@ body {
   align-self: center;
 }
 .input-label {
-  color: var(--sec-color);
+  color: var(--text-color);
   font-size: 1.1rem;
   margin-left: 10px;
 }
@@ -92,7 +94,7 @@ body {
   background: transparent;
   border: 2px solid var(--sec-color);
   border-radius: 5px;
-  color: var(--sec-color);
+  color: var(--text-color);
   font-size: 1.1rem;
   width: 80px;
   text-align: center;
@@ -100,7 +102,7 @@ body {
   margin-left: 20px;
 }
 .font-size-input-label {
-  color: var(--sec-color);
+  color: var(--text-color);
   font-size: 1.1rem;
   margin-right: -20px;
 }
@@ -120,12 +122,12 @@ body {
   text-align: left;
   font-size: 1.15rem;
   background: transparent;
-  border: 2px solid var(--sec-color);
+  border: 2px solid #656565;
 }
 .lang-drop-btn:hover,
 .theme-drop-btn:hover {
   background: transparent;
-  border: 2px solid var(--sec-color);
+  border: 2px solid #656565;
 }
 .lang-drop-btn:active,
 .theme-drop-btn:active {
@@ -135,6 +137,7 @@ body {
 .arrow-svg {
   position: absolute;
   right: 4px;
+  fill: var(--sec-color);
 }
 .lang-menu,
 .theme-menu {
@@ -144,7 +147,7 @@ body {
   overflow-y: scroll;
 }
 .item {
-  color: var(--sec-color);
+  color: var(--text-color);
   font-size: 1.1rem;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -175,31 +178,30 @@ body {
   align-self: center;
 }
 .save-btn {
+  --lightness: 75%;
   color: #000;
-  background: rgb(161, 221, 161);
+  background: hsl(120deg 47% var(--lightness));
   border: 0;
   border-radius: 8px;
 }
 .load-btn {
+  --lightness: 75%;
   color: #000;
   border-radius: 8px;
   border: 0;
-  background: rgb(209, 209, 129);
+  background: hsl(60deg 47% var(--lightness));
 }
-.exp-btn {
+.export-btn {
+  --lightness: 75%;
   color: #000;
-  background: rgb(187, 115, 115);
+  background: hsl(319deg 67% var(--lightness));
   border: 0;
   border-radius: 8px;
 }
-.save-btn:hover {
-  background: rgb(141, 196, 141);
-}
-.load-btn:hover {
-  background: rgb(189, 189, 118);
-}
-.exp-btn:hover {
-  background: rgb(187, 106, 106);
+.save-btn:hover,
+.load-btn:hover,
+.export-btn:hover {
+  --lightness: 60%;
 }
 
 .color-picker {
@@ -216,7 +218,6 @@ body {
   padding: 40px;
   background: #5875df;
   width: 100%;
-  border-radius: 3px;
   transition: 0.25s ease-in-out;
 }
 .export-container {
