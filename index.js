@@ -156,6 +156,7 @@ function handleLoadSnippetEvent() {
       let emptyStr = "";
       editor.setValue(emptyStr);
       let SnippetObj = JSON.parse(localStorage.getItem(btn.parentElement.id));
+      snippetNameInput.value = btn.parentElement.id;
       editor.setValue(SnippetObj.snippet);
       editor.setOption("mode", SnippetObj.languageid);
       langBtn.innerHTML = `${SnippetObj.language}
